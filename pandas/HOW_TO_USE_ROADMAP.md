@@ -1,4 +1,4 @@
-# 📌 How to Use the Pandas Roadmap Tracker
+#  How to Use the Pandas Roadmap Tracker
 
 This file explains how to get the most out of `pandas_roadmap.md` — your session-by-session progress tracker for the Pandas Mastery curriculum.
 
