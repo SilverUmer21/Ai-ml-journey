@@ -1,6 +1,6 @@
-# NumPy Mastery Tracker — ML Engineer Edition
+# NumPy Mastery roadmap — ML Engineer Edition
 
-> Upload this file at the start of every session so Claude knows exactly where you are and what's next.
+> Upload this file at the start of every session so Claude knows exactly where you are and what's next. This would burn tokkens instead make Project in claude and add this md file to memory/context.
 
 ---
 
@@ -14,14 +14,6 @@
 | ⬜ | Not started |
 | 🔄 | In progress |
 | ✅ | Complete |
-
----
-
-## Current Status
-
-**Currently Working On:** `LEVEL 1 — Topic 1: Why NumPy Exists`
-**Last Session:** Not started yet
-**Next Up:** Topic 2 — Creating Arrays
 
 ---
 
