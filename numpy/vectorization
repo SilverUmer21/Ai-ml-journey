@@ -1,0 +1,84 @@
+import numpy as np
+import time
+
+# Vectorized predict
+def predict(X, w, b):
+    return X @ w + b
+
+
+# Cost function
+def compute_cost(X, y, w, b):
+    m = X.shape[0]
+    err = predict(X, w, b) - y
+    return (1 / (2 * m)) * np.sum(err ** 2)
+
+
+# One step of vectorized gradient descent
+def gradient_step(X, y, w, b, alpha):
+    m = X.shape[0]
+    err = predict(X, w, b) - y
+    dw = (1 / m) * (X.T @ err)
+    db = (1 / m) * np.sum(err)
+    w = w - alpha * dw
+    b = b - alpha * db
+    return w, b
+
+
+#  Bug hunting loop version vs vectorized version
+
+def gradient_step_loop(X, y, w, b, alpha):
+    m, n = X.shape
+    dw = np.zeros(n)
+    db = 0.0
+    for i in range(m):
+        pred = 0.0
+        for j in range(n):
+            pred += X[i, j] * w[j]
+        pred += b
+        err = pred - y[i]
+        for j in range(n):
+            dw[j] += err * X[i, j]
+        db += err
+    dw /= m
+    db /= m
+    w = w - alpha * dw
+    b = b - alpha * db
+    return w, b
+
+
+np.random.seed(0)
+X = np.random.rand(100, 3)
+y = X @ np.array([2.0, -1.0, 0.5]) + 3
+
+w1, b1 = np.zeros(3), 0.0
+w2, b2 = np.zeros(3), 0.0
+alpha = 0.1
+
+for _ in range(100):
+    w1, b1 = gradient_step(X, y, w1, b1, alpha)
+    w2, b2 = gradient_step_loop(X, y, w2, b2, alpha)
+
+print("vectorized cost:", compute_cost(X, y, w1, b1))
+print("loop cost:", compute_cost(X, y, w2, b2))
+
+
+# Benchmark on 10,000 rows
+
+X_big = np.random.rand(10000, 3)
+y_big = X_big @ np.array([2.0, -1.0, 0.5]) + 3
+
+w, b = np.zeros(3), 0.0
+start = time.time()
+for _ in range(100):
+    w, b = gradient_step_loop(X_big, y_big, w, b, alpha)
+loop_time = time.time() - start
+
+w, b = np.zeros(3), 0.0
+start = time.time()
+for _ in range(100):
+    w, b = gradient_step(X_big, y_big, w, b, alpha)
+vec_time = time.time() - start
+
+print("loop time:", loop_time)
+print("vectorized time:", vec_time)
+print("speedup:", loop_time / vec_time)
