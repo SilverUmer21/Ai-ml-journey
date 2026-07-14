@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Optional Lab: Feature scaling and Learning Rate (Multi-variable)
-
 # ## Goals
 # In this lab you will:
 # - Utilize  the multiple variables routines developed in the previous lab
@@ -10,10 +5,6 @@
 # - explore the impact of the *learning rate alpha* on gradient descent
 # - improve performance of gradient descent by *feature scaling* using z-score normalization
 
-# ## Tools
-# You will utilize the functions developed in the last lab as well as matplotlib and NumPy. 
-
-# In[1]:
 
 
 import numpy as np
