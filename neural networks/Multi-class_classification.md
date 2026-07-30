@@ -1,4 +1,4 @@
-### 1- Multi class classification problem
+# Multi class classification problem
 The problem is that Y which is the ground truth can have multiple values rather than being 1 or 0 which we were doing in Binary Classification using Sigmoig as activation function. 
 
 ![alt text](Screenshots/logistic_regression_interpretation.png)
@@ -10,7 +10,7 @@ Softmax gives us the output which we can interpret as probabilty of Y = 1 given 
 a_j is interpreted as the model's estmiate that y is equal to j given the input features x  
     When n = 2 then softmax regression model reduces to logistic regression
 
-What does w1,w2,w3,w4 mean? Put to put simply , each class has its own weights.
+## What does w1,w2,w3,w4 mean? Put to put simply , each class has its own weights.
 Let's assume every animal image has 5 features.
 
 Feature 1 = Ear length
@@ -54,6 +54,8 @@ Height        +8
 Each class has its own opinion.
 
 That is why there are w1,w2,w3,w4 instead of only one weight vector.
-## Cost and Loss function for Softmax 
+# Cost and Loss function for Softmax 
 ![alt text](<Screenshots/cost for softmax.png>)
- 
+### The more confident the model is about the correct answer, the smaller the loss becomes
+When prediction is correct then loss is small and all other classes are ignored
+
