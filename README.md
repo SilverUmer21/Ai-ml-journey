@@ -8,10 +8,10 @@ Welcome to my AI/ML learning repository! This project tracks my progress as I wo
 
 | Topic | Category | Status | Key Resources |
 | :--- | :--- | :--- | :--- |
-| **Linear Regression** | Foundational | ✅ Completed | [Basics Script](./Code/Implementations/02_linear_regression.py), [Multi-Feature](./Code/Implementations/03_multiple_linear_regression.py) |
-| **Gradient Descent** | Optimization | ✅ Completed | [Scaling & Descent](./Code/Implementations/01_gradient_descent_scaling.py) |
-| **Neural Networks** | Deep Learning | 🚧 In Progress | [Softmax NB](./Code/Notebooks/04_neural_network_softmax.ipynb), [Adam NB](./Code/Notebooks/06_neural_network_adam_opt.ipynb) |
-| **NumPy & Pandas** | Data Science | ✅ Completed | [Mastery Tracker](./Notes/NumPy-Pandas/numpy_mastery_tracker.md) |
+| **Linear Regression** | Foundational |  Completed | [Basics Script](./Code/Implementations/02_linear_regression.py), [Multi-Feature](./Code/Implementations/03_multiple_linear_regression.py) |
+| **Gradient Descent** | Optimization |  Completed | [Scaling & Descent](./Code/Implementations/01_gradient_descent_scaling.py) |
+| **Neural Networks** | Deep Learning |  In Progress | [Softmax NB](./Code/Notebooks/04_neural_network_softmax.ipynb), [Adam NB](./Code/Notebooks/06_neural_network_adam_opt.ipynb) |
+| **NumPy & Pandas** | Data Science | Completed | [Mastery Tracker](./Notes/NumPy-Pandas/numpy_mastery_tracker.md) |
 
 ---
 
