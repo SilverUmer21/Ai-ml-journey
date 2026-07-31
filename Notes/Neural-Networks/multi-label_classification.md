@@ -1,5 +1,5 @@
 # Multi-Label Classification
-![alt text](Screenshots/multilabel.png)
+![alt text](../../Assets/Screenshots/multilabel.png)
 Multiple classes can be correct at the same time.
 Target is a vector (e.g., [1,0,1]).
 Each output neuron answers an independent Yes/No question.

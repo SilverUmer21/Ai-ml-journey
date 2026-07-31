@@ -1,13 +1,13 @@
 # Numerical Round off errors 
-![alt text](<Screenshots/round off error.png>)
+![alt text](<../../Assets/Screenshots/round off error.png>)
 because the computer has a finite memory , so the way we decide to compute 2/10000 , will result in more or less round off error
 
 # Logistic regression round off erros
-![alt text](<Screenshots/logistic round off errors.png>)
+![alt text](<../../Assets/Screenshots/logistic round off errors.png>)
 But instead, by specifying ​this expression at the bottom ​directly as the loss function, ​it gives TensorFlow more flexibility in terms of ​how to compute this and whether or not ​it wants to compute a explicitly. ​The code you can use to do this ​is shown here and what this does is it ​sets the output layer to just use ​a linear activation function and it ​puts both the activation function, ​1/1 plus to the negative z, ​as well as this cross entropy loss into ​the specification of the loss function over here.
 
 # Softmax round off erros
-![alt text](<Screenshots/softmax round off.png>)
+![alt text](<../../Assets/Screenshots/softmax round off.png>)
 Softmax converts logits into probabilities.
 Logits are the raw outputs z=Wx+b.
 Softmax probabilities always sum to 1.
