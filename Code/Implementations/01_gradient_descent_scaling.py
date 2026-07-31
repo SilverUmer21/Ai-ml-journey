@@ -1,3 +1,9 @@
+"""
+Lab 01: Gradient Descent and Feature Scaling
+Goal: Explore the impact of learning rate alpha and feature scaling on multiple linear regression.
+Dataset: Housing Price Prediction
+"""
+
 # ## Goals
 # In this lab you will:
 # - Utilize  the multiple variables routines developed in the previous lab

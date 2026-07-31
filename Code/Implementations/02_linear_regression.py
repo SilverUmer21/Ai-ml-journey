@@ -1,3 +1,8 @@
+"""
+Lab 02: Simple Linear Regression from Scratch
+Goal: Manually implement gradient descent for a single-feature linear regression model.
+"""
+
 import numpy as np 
 
 x = np.array([1, 2, 3])
@@ -51,7 +56,7 @@ def gradient_descent(x,y,w,b,alpha,iterations):
 
 
 w , b = gradient_descent(x,y,w,b,ALPHA,ITERATIONS)
-print(w)
-print(b)
+print(f"Final w: {w:.4f}")
+print(f"Final b: {b:.4f}")
 
-print(compute_cost(x,y,w,b))
+print(f"Final Cost: {compute_cost(x,y,w,b):.4f}")
