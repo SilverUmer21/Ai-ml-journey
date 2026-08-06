@@ -75,5 +75,15 @@ If this gap is large, the model does not generalize. That is high variance.
 - Verdict: both problems at once
 
 This last case is the worst situation and Andrew says it doesn't happen often in practice, but it is possible.
+## Why Baseline Changes Everything
 
+Without baseline, you would have looked at 10.8% J_train in case 1 and called it high bias. With baseline, you see it's actually almost at human level and the real issue is variance. The diagnosis flips completely.
+
+For tasks where perfect performance is achievable (like predicting a deterministic function), baseline can be 0% and J_train just is what it is. But for tasks with inherent noise, like speech in bad conditions, medical imaging with ambiguous scans, or any domain where even experts make mistakes, baseline is nonzero and you cannot ignore it.
+
+This is also why J_train not being close to zero is not automatically bad. It depends entirely on whether zero is even a realistic target.
+
+## The Framework in One Sentence
+
+Compare J_train to baseline to detect bias. Compare J_cv to J_train to detect variance. Both gaps need to be small for the algorithm to actually be working well.
 
