@@ -6,4 +6,4 @@ It turns out that each of these six items either ​helps fix a high variance or
 * Adding more and more training data can be helpful
 * Trying smaller set of features can help as it will reduce the flexibility of your model to overfit the data 
 
-More on this in these notes which i made after searching online: 
+More on this in these notes which i made after searching online: [Debugging learning algorithm notes](debugging_learning_algorithm.md)
