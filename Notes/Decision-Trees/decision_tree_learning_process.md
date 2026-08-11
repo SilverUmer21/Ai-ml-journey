@@ -10,13 +10,13 @@ how you actually build a decision tree from a training set (cat vs dog example, 
 
 final tree:
 
-![final tree](../../../Assets/Screenshots/1786455699549_image.png)
+![final tree](../../Assets/Screenshots/1786455699549_image.png)
 
 so basically: pick feature → split → check if pure → if not pure, repeat on that branch → if pure, leaf node.
 
 ## decision 1: which feature to split on
 
-![feature comparison](../../../Assets/Screenshots/1786455694136_image.png)
+![feature comparison](../../Assets/Screenshots/1786455694136_image.png)
 
 goal = maximize purity (minimize impurity) of the resulting subsets.
 
@@ -31,7 +31,7 @@ algorithm picks whichever split gets closest to pure subsets. exact method = ent
 
 ## decision 2: when to stop splitting
 
-![stopping criteria](../../../Assets/Screenshots/1786455687218_image.png)
+![stopping criteria](../../Assets/Screenshots/1786455687218_image.png)
 
 stop when:
 - node is 100% one class (natural leaf)
