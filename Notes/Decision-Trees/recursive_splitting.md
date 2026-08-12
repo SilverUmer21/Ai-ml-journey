@@ -1,56 +1,50 @@
-# Building the Full Decision Tree: Recursive Splitting
+# Building the Full Tree -- Recursive Splitting
 
-Week notes from Andrew Ng ML Specialization. Previous lecture gave the formula for picking one split. This lecture puts it together into the full algorithm for building the whole tree.
+last lecture = how to pick ONE split. this = doing that over and over to build the whole tree.
 
-## The Overall Algorithm
+## the algorithm
+1. all examples start at root
+2. compute info gain for every feature, pick best
+3. split into left/right branches
+4. repeat steps 2-3 on left branch, then right branch
+5. stop at a node when:
+   - 100% one class
+   - max depth would be exceeded
+   - info gain below threshold
+   - too few examples in node
 
-![Decision Tree Learning Process](../../Assets/Screenshots/decision_tree_process_summary.png)
+that's really the whole thing. nothing new conceptually, just apply the rule at every node not just root.
 
-Start with all training examples sitting at the root node. Calculate information gain for every possible feature. Pick whichever feature gives the highest information gain. Split the dataset into two subsets based on that feature and create left and right branches.
+## walking the cat example
+root → info gain computed for all 3 features → ear shape wins → split pointy(5) / floppy(5)
 
-Then repeat this exact process on the left branch, and separately on the right branch. Keep repeating until a stopping criteria is met at each node:
+**left branch (5 pointy):**
+check stop criteria: mixed cats/dogs, not pure → keep going
+recompute info gain but ONLY on these 5 examples, treat as fresh mini problem
+- ear shape → info gain = 0 (obviously, all 5 already share this value, no new info)
+- face shape vs whiskers → face shape wins
+split round(4, all cats)/not round(1, dog) → both pure → leaf nodes: cat / not cat
 
-- Node is 100% one class
-- Splitting further would exceed max depth
-- Information gain from the best available split is below a threshold
-- Number of examples in the node is below a threshold
+**right branch (5 floppy):** -- same deal, own island
+check stop : mixed → keep going
+recompute info gain fresh on just these 5 → whiskers wins this time
+split present(cat)/absent(dogs) → both pure → leaf nodes
 
-This is the whole algorithm. The only new idea in this lecture is that you don't just do this once at the root. You do it again and again at every node that hasn't stopped yet.
+note: whiskers won on the right, face shape won on the left. DIFFERENT winning feature depending on which subset you're in. makes sense since it's literally solving a smaller separate problem each time.
 
-## Walking Through the Example
+## why "recursive"
+the whole insight of this lecture : building left branch = running the SAME algorithm again just on 5 examples instead of 10. right branch = same thing again, separately.
 
-Using the ear shape / face shape / whiskers example from before.
+tree building = building smaller trees inside itself. function calls itself on subsets until stopping criteria hit.
 
-At the root, information gain is computed for all three features. Ear shape wins. Split into pointy (5 examples) and floppy (5 examples).
+→ don't need to fully get recursion as CS concept to use decision trees (libraries handle it), but if writing from scratch this is the structure: build_node() that calls build_node() twice (left subset, right subset) unless it's a leaf.
 
-Now cover up the root and the right branch. Just look at the left branch, the 5 pointy-eared examples. Check the stopping criteria first: is this node 100% one class? No, it's a mix of cats and dogs. So we don't stop.
+## max depth
+bigger max depth = tree can be more complex = more overfit risk. same tradeoff as poly degree / bigger NN.
 
-Pick a feature to split on again, but now only considering these 5 examples, as if this node were its own root with its own miniature dataset. Compute information gain for whiskers and face shape. Ear shape gives 0 information gain here since all 5 examples already share the same ear shape, so there's no point recomputing it. Face shape wins.
+could cross-validate to pick max depth in theory. in practice libraries have decent defaults, rarely hand-tune this from scratch.
 
-Split into round (4 examples, all cats) and not round (1 example, a dog). Check stopping criteria on each: both are 100% one class. Stop. Create leaf nodes: cat, not cat.
-
-Now uncover the right branch, the 5 floppy-eared examples. Same process: check stopping criteria (not met, mixed), compute information gain for candidate features, whiskers wins this time, split into present (cat) and absent (dogs), both come out pure, create leaf nodes.
-
-![Recursive Splitting](../../Assets/Screenshots/recursive_splitting.png)
-
-## Why This Is Called Recursive
-
-Here's the part worth sitting with. Notice what happened building the left branch: it was built by literally running the same algorithm again, just on a smaller dataset of 5 examples instead of 10. The right branch was built the exact same way, treating its own 5 examples as a fresh mini-problem.
-
-This is recursion. A decision tree is built by building smaller decision trees inside it. The function that builds a tree calls itself on subsets of the data until the subsets are small enough or pure enough to stop.
-
-Libraries handle this for you. But if you were implementing a decision tree from scratch, this is exactly the structure your code would need: a function that builds a node, and if that node isn't a leaf, calls itself twice, once for the left subset and once for the right subset.
-
-## Choosing Max Depth
-
-Max depth controls how big the tree is allowed to grow. Larger max depth means the tree can fit more complex patterns, similar to how a higher degree polynomial or a bigger neural network can fit more complex functions. But that also means more risk of overfitting.
-
-In principle you could use cross-validation to tune max depth, trying different values and picking whichever does best on the CV set. In practice, open source decision tree libraries usually have reasonable default choices already built in, so this is rarely something you tune manually from scratch.
-
-## What's Left
-
-So far every feature used has been binary (pointy/floppy, round/not round, present/absent). The next lectures extend this to features with more than two categories, and to continuous-valued features.
-
----
+## next
+so far only binary features (pointy/floppy etc). next lectures: features w/ >2 categories + continuous features.
 
 *Source: Andrew Ng, Machine Learning Specialization*
