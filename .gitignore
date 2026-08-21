@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+artifacts/
+build_notebook.py
+COMMAND_REFERENCE.md
+AGENTS.md
