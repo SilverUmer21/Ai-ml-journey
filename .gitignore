@@ -6,3 +6,5 @@ __pycache__/
 .env
 artifacts/
 build_notebook.py
+COMMAND_REFERENCE.md
+AGENTS.md
