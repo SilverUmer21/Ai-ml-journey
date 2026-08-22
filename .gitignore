@@ -8,3 +8,5 @@ artifacts/
 build_notebook.py
 COMMAND_REFERENCE.md
 AGENTS.md
+python-engineering-deep-dive.md
+ai-engineering-roadmap.md
