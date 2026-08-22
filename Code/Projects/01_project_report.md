@@ -34,12 +34,12 @@ An R² of ~0.58 means the model explains about 58% of the variation in house pri
 ## What the graphs are telling me
 
 ### Cost curve
-![Cost curve](cost_curve.png)
+![Cost curve](../../Assets/Screenshots/cost_curve.png)
 
 The cost dropped sharply within the first ~50 iterations and flattened out by around 200, staying flat for the remaining 800. This means gradient descent converged properly ; the learning rate was appropriate (not too big to overshoot, not too small to stall), and training ran for enough iterations to reach a stable minimum.
 
 ### Predicted vs Actual
-![Predicted vs Actual](pred_vs_actual.png)
+![Predicted vs Actual](../../Assets/Screenshots/pred_vs_actual.png)
 
 Points close to the red dashed diagonal line are well-predicted. Most of the data (roughly actual price 1–4, in units of $100k) sits reasonably close to that line, which matches the R² score which is decent but not great fit.
 
@@ -48,7 +48,7 @@ Two things stand out:
 - **One clear outlier** near actual ≈ 1.6, predicted ≈ 11.5 , a single house where the model badly overpredicted. Likely one example with unusual feature values (e.g. an extreme rooms-per-household ratio) that pushed the linear model to an unreasonable output. Worth noting, not worth fixing , a single outlier like this doesn't change the overall story.
 
 ### Residuals vs Predicted
-![Residuals](residuals.png)
+![Residuals](../../Assets/Screenshots/residuals.png)
 
 A "healthy" residual plot looks like a flat, random cloud centered on zero, with no visible pattern. Mine isn't quite that , there's a visible downward trend: as predicted price increases, residuals drift from positive (underpredicting cheap houses less, actually mildly overpredicting them) to negative (underpredicting expensive houses).
 
