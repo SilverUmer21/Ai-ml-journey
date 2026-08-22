@@ -1,7 +1,7 @@
 from ml_utils.validation import validate_binary_label
 
 def calculate_accuracy(y_true: list[int], y_pred: list[int]) -> float:
-    """Returns the accurracy of the two non-empty, equal-length binary label lists"""
+    """Returns the accuracy of the two non-empty, equal-length binary label lists"""
 
     counts = 0
     range1,range2 = len(y_true), len(y_pred)
