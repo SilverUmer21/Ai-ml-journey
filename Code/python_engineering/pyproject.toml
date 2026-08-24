@@ -7,6 +7,8 @@ name = "ml-utils-learning"
 version = "0.1.0"
 description = "Small typed ML utilities used for Python engineering practice"
 requires-python = ">=3.10"
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
